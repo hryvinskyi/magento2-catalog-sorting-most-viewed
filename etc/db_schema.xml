@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright (c) 2026. Volodymyr Hryvinskyi. All rights reserved.
+ * Author: Volodymyr Hryvinskyi <volodymyr@hryvinskyi.com>
+ * GitHub: https://github.com/hryvinskyi
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="hryvinskyi_catalog_sorting_product_view" resource="default" engine="innodb"
+           comment="Catalog Sorting Product Page Views per Store and UTC Day">
+        <column xsi:type="int" name="product_id" unsigned="true" nullable="false" identity="false"
+                comment="Product ID"/>
+        <column xsi:type="smallint" name="store_id" unsigned="true" nullable="false" identity="false"
+                comment="Store ID"/>
+        <column xsi:type="date" name="viewed_on" nullable="false" comment="UTC Day of the Views"/>
+        <column xsi:type="int" name="views" unsigned="true" nullable="false" identity="false" default="0"
+                comment="Product Page Views"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="product_id"/>
+            <column name="store_id"/>
+            <column name="viewed_on"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="HRYVINSKYI_CAT_SORTING_PRD_VIEW_PRD_ID_CAT_PRD_ENTT_ENTT_ID"
+                    table="hryvinskyi_catalog_sorting_product_view" column="product_id"
+                    referenceTable="catalog_product_entity" referenceColumn="entity_id" onDelete="CASCADE"/>
+        <constraint xsi:type="foreign" referenceId="HRYVINSKYI_CATALOG_SORTING_PRODUCT_VIEW_STORE_ID_STORE_STORE_ID"
+                    table="hryvinskyi_catalog_sorting_product_view" column="store_id"
+                    referenceTable="store" referenceColumn="store_id" onDelete="CASCADE"/>
+        <index referenceId="HRYVINSKYI_CATALOG_SORTING_PRODUCT_VIEW_VIEWED_ON" indexType="btree">
+            <column name="viewed_on"/>
+        </index>
+    </table>
+</schema>

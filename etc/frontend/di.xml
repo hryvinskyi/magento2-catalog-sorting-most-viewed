@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright (c) 2026. Volodymyr Hryvinskyi. All rights reserved.
+ * Author: Volodymyr Hryvinskyi <volodymyr@hryvinskyi.com>
+ * GitHub: https://github.com/hryvinskyi
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- The view beacon posts on every product view; it is not a page the shopper opened, so the visitor is not
+         recorded for it: no visitor row is written and no visitor data is kept for the beacon request -->
+    <type name="Magento\Customer\Model\Visitor">
+        <arguments>
+            <argument name="ignores" xsi:type="array">
+                <item name="hryvinskyi_sorting" xsi:type="boolean">true</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

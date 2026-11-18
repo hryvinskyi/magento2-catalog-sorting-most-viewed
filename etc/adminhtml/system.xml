@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright (c) 2026. Volodymyr Hryvinskyi. All rights reserved.
+ * Author: Volodymyr Hryvinskyi <volodymyr@hryvinskyi.com>
+ * GitHub: https://github.com/hryvinskyi
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="catalog_sorting">
+            <group id="most_viewed" translate="label" type="text" sortOrder="110"
+                   showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Most Viewed</label>
+                <field id="enabled" translate="label comment" type="select" sortOrder="10"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <comment>Offers "Most Viewed" in Sort By. Product page views are counted in the visitor's browser, cached pages included, while this is enabled; rankings are recomputed by the daily popularity refresh.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="period" translate="label comment" type="text" sortOrder="20" showInDefault="1">
+                    <label>Period, Days</label>
+                    <comment>Days of product page views counted, today included. Views older than that are deleted by the refresh. Blank or 0 counts 90 days.</comment>
+                    <validate>validate-digits</validate>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

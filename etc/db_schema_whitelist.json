@@ -1,0 +1,18 @@
+{
+    "hryvinskyi_catalog_sorting_product_view": {
+        "column": {
+            "product_id": true,
+            "store_id": true,
+            "viewed_on": true,
+            "views": true
+        },
+        "index": {
+            "HRYVINSKYI_CATALOG_SORTING_PRODUCT_VIEW_VIEWED_ON": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "HRYVINSKYI_CAT_SORTING_PRD_VIEW_PRD_ID_CAT_PRD_ENTT_ENTT_ID": true,
+            "HRYVINSKYI_CATALOG_SORTING_PRODUCT_VIEW_STORE_ID_STORE_STORE_ID": true
+        }
+    }
+}
